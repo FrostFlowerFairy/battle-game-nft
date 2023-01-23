@@ -7,9 +7,9 @@
 <p>If you have never interacted with the Avax blockchain before, you will need to import it to Metamask. Here are the steps:</p>
 <ol>
   <li>Open Metamask and click on the network dropdown in the top-right corner.</li>
-  <li>Select "Custom RPC" from the bottom of the list.</li>
-  <li>In the "New RPC URL" field, enter "https://api.avax-test.network"</li>
-  <li>In the "ChainID" field, enter "30"</li>
+  <li>Select "Network Name" </li>
+  <li>In the "Network URL" "https://api.avax-test.network/ext/bc/C/rpc"</li>
+  <li>In the "ChainID" field, enter "43113"</li>
   <li>In the "Symbol" field, enter "AVAX"</li>
   <li>In the "Decimals" field, enter "8"</li>
   <li>Click "Save"</li>

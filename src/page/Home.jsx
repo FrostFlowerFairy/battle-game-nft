@@ -5,49 +5,49 @@ import {useNavigate} from 'react-router-dom';
 
 
 const Home = () => {
-  const { contract, walletAddress, setShowAlert} = useGlobalContext();
-  const [playerName, setPlayerName] = React.useState("");
+  const { contract, walletAddress, setShowAlert, gameData,setErrorMessage} = useGlobalContext();
+  const [playerName, setPlayerName] = useState("");
 
   const navigate = useNavigate();
 
   const handleRegister = async () => {
     try{
       const playerExists = await contract.isPlayer(walletAddress);  
-      if(playerExists){
-        alert("Player already exists");
-        return;
-      }
+
       if(!playerExists) {
-        const registerPlayer = await contract.registerPlayer(playerName, playerName);
-      }
-      setShowAlert({
-        status: true,
-        type: "success",
-        message: `Player with name ${playerName} registered successfully`
-      });
+        await contract.registerPlayer(playerName, playerName, { gasLimit: 500000 });
+        setShowAlert({
+          status: true,
+          type: "success",
+          message: `Player with name ${playerName} registered successfully`
+        });
+
+        setTimeout(() => navigate('/create-battle'), 8000);
+      }  
     }
     catch(err){
-      setShowAlert({
-        status: true,
-        type: "failure",
-        message: "Something went wrong"
-      });
-      console.log(err);
+      setErrorMessage(err)
     }
   };
-  
-useEffect(() => {
-  const checkForPlayerToken = async () => {
-    const playerExists = await contract.isPlayer(walletAddress);  
-    const playerTokenExists = await contract.isPlayerToken(walletAddress)
 
-    if(playerExists && playerTokenExists) navigate("/create-battle")
-  } 
-  if(contract) checkForPlayerToken()
-},[contract])
+useEffect(() => {
+    const checkForPlayerToken = async () => {
+      const playerExists = await contract.isPlayer(walletAddress);
+      const playerTokenExists = await contract.isPlayerToken(walletAddress);
+
+      if (playerExists && playerTokenExists) navigate('/create-battle');
+    };
+
+    if (contract) checkForPlayerToken();
+  }, [contract]);
+
+useEffect(() => {
+  if (gameData.activeBattle) {
+    navigate(`/battle/${gameData.activeBattle.name}`);
+  }
+}, [gameData]);
 
 return(
-
     <div className="flex flex-col">
      <CustomInput
      label="Name"

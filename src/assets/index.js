@@ -47,8 +47,8 @@ import alertIcon from './alertIcon.svg';
 import AlertIcon from './AlertIcon.jsx';
 
 // players
-import player01 from './player01.png';
-import player02 from './player02.png';
+import player01Icon from './player01.png';
+import player02Icon from './player02.png';
 
 // sounds
 import attackSound from './sounds/attack.wav';
@@ -133,8 +133,8 @@ export {
   alertIcon,
   AlertIcon,
 
-  player01,
-  player02,
+  player01Icon,
+  player02Icon,
 
   attackSound,
   defenseSound,

@@ -2,7 +2,7 @@ import React, {useState, useEffect} from 'react';
 import { useNavigate } from 'react-router-dom';
 import CustomButton from './CustomButton';
 import { useGlobalContext } from '../context';
-import { player01, player02 } from '../assets';
+import { player01Icon, player02Icon } from '../assets';
 import styles from '../styles';
 
 const GameLoad = () => {
@@ -21,12 +21,12 @@ const GameLoad = () => {
             </p>
             <div className={styles.gameLoadPlayersBox}>
                 <div className={`${styles.flexCenter} flex-col`}>
-                    <img src={player01} alt="player" className={styles.gameLoadPlayerImg} />
+                    <img src={player01Icon} alt="player" className={styles.gameLoadPlayerImg} />
                     <p className={styles.gameLoadPlayerText}>{walletAddress.slice(0,30)}</p>
                 </div>
                 <h2 className={styles.gameLoadVS} >VS</h2>
                 <div className={`${styles.flexCenter} flex-col`}>
-                    <img src={player02} alt="player" className={styles.gameLoadPlayerImg} />
+                    <img src={player02Icon} alt="player" className={styles.gameLoadPlayerImg} />
                     <p className={styles.gameLoadPlayerText}>?????????????????????</p>
                 </div>
             </div>

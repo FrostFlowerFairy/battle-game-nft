@@ -21,4 +21,11 @@
   <li>Now you should see "AVAX Testnet" in the network dropdown. Select it.</li>
 </ol>
 
+<p>If you dont see testnet, go to settings and allow testmode or testnets to be shown in your wallet</p>
+
 <p>You are now ready to interact with the NFT game on the AVAX testnet Fuji. Have fun!</p>
+
+<h2>Here is quick demo from app </h2>
+
+https://user-images.githubusercontent.com/105317804/214840429-b4ace38a-bb7e-440f-b956-9a58d9e48d86.MOV
+
